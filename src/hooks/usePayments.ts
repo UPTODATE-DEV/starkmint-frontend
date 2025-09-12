@@ -92,13 +92,11 @@ export function usePayments() {
   };
 
   // Obtenir un paiement par ID
-  const getPaymentById = useQuery(
-    ["payment", "id"],
-    (id: string) => apiClient.getPaymentById(id),
-    {
-      enabled: false,
-    }
-  );
+  const getPaymentById = (id: string) => {
+    return useQuery(["payment", id], () => apiClient.getPaymentById(id), {
+      enabled: !!id,
+    });
+  };
 
   return {
     payments,
@@ -108,7 +106,7 @@ export function usePayments() {
     verifyPayment: verifyPaymentMutation.mutateAsync,
     payWithBlockchain,
     refreshPayments,
-    getPaymentById: getPaymentById.refetch,
+    getPaymentById,
     isInitiating: initiatePaymentMutation.isLoading,
     isVerifying: verifyPaymentMutation.isLoading,
   };

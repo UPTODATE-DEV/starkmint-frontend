@@ -16,6 +16,7 @@ interface PlanCardProps {
   plan: Plan;
   isSelected?: boolean;
   isCurrent?: boolean;
+  isPopular?: boolean;
   onSelect?: (plan: Plan) => void;
   onUpgrade?: (plan: Plan) => void;
   userTokenCount?: number;
@@ -25,14 +26,16 @@ const PlanCard: React.FC<PlanCardProps> = ({
   plan,
   isSelected = false,
   isCurrent = false,
+  isPopular = false,
   onSelect,
   onUpgrade,
   userTokenCount = 0,
 }) => {
   const isFree = plan.priceStrk === 0;
-  const isPopular = plan.name === "Pro";
-  const canCreateToken = plan.canCreateToken(userTokenCount);
-  const isUnlimited = plan.hasUnlimitedTokens();
+  const canCreateToken = plan.maxTokens
+    ? userTokenCount < plan.maxTokens
+    : true;
+  const isUnlimited = !plan.maxTokens;
 
   const handleAction = () => {
     if (isCurrent) return;
@@ -70,7 +73,10 @@ const PlanCard: React.FC<PlanCardProps> = ({
     >
       {isPopular && (
         <div className="absolute -top-3 left-1/2 transform -translate-x-1/2">
-          <Badge variant="starknet" className="px-3 py-1">
+          <Badge
+            variant="default"
+            className="px-3 py-1 bg-purple-600 hover:bg-purple-700"
+          >
             <Star className="h-3 w-3 mr-1" />
             Populaire
           </Badge>

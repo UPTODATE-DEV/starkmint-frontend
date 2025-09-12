@@ -11,10 +11,11 @@ const nextConfig = {
         domains: ['localhost'],
     },
     async rewrites() {
+        const apiUrl = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:3000';
         return [
             {
                 source: '/api/:path*',
-                destination: `${process.env.NEXT_PUBLIC_API_URL}/:path*`,
+                destination: `${apiUrl}/:path*`,
             },
         ];
     },

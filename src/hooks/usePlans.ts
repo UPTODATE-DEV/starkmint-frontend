@@ -15,13 +15,11 @@ export function usePlans() {
   });
 
   // Récupérer un plan par ID
-  const getPlanById = useQuery(
-    ["plan", "id"],
-    (id: number) => apiClient.getPlanById(id),
-    {
-      enabled: false,
-    }
-  );
+  const getPlanById = (id: number) => {
+    return useQuery(["plan", id], () => apiClient.getPlanById(id), {
+      enabled: !!id,
+    });
+  };
 
   // Obtenir le plan gratuit
   const freePlan = plans.find((plan) => plan.priceStrk === 0);
@@ -44,6 +42,6 @@ export function usePlans() {
     isLoading,
     error,
     refreshPlans,
-    getPlanById: getPlanById.refetch,
+    getPlanById,
   };
 }

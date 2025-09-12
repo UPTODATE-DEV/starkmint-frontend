@@ -63,22 +63,22 @@ export function useTokens() {
   };
 
   // Obtenir un token par ID
-  const getTokenById = useQuery(
-    ["token", "id"],
-    (id: string) => apiClient.getTokenById(id),
-    {
-      enabled: false,
-    }
-  );
+  const getTokenById = (id: string) => {
+    return useQuery(["token", id], () => apiClient.getTokenById(id), {
+      enabled: !!id,
+    });
+  };
 
   // Obtenir un token par adresse
-  const getTokenByAddress = useQuery(
-    ["token", "address"],
-    (address: string) => apiClient.getTokenByAddress(address),
-    {
-      enabled: false,
-    }
-  );
+  const getTokenByAddress = (address: string) => {
+    return useQuery(
+      ["token", "address", address],
+      () => apiClient.getTokenByAddress(address),
+      {
+        enabled: !!address,
+      }
+    );
+  };
 
   return {
     tokens,
@@ -87,8 +87,8 @@ export function useTokens() {
     createToken: createTokenMutation.mutateAsync,
     createTokenWithBlockchain,
     refreshTokens,
-    getTokenById: getTokenById.refetch,
-    getTokenByAddress: getTokenByAddress.refetch,
+    getTokenById,
+    getTokenByAddress,
     isCreating: createTokenMutation.isLoading,
   };
 }

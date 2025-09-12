@@ -9,8 +9,8 @@ WORKDIR /app
 # Copier les fichiers de configuration
 COPY package*.json ./
 
-# Installer les dépendances
-RUN npm ci --only=production
+# Installer les dépendances (y compris dev dependencies pour le build)
+RUN npm ci
 
 # Copier le code source
 COPY . .
@@ -19,7 +19,9 @@ COPY . .
 RUN npm run build
 
 # Exposer le port
-EXPOSE 3000
+EXPOSE 3001
 
 # Commande de démarrage
+ENV PORT=3001
+ENV HOSTNAME=0.0.0.0
 CMD ["npm", "start"]
