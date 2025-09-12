@@ -26,7 +26,7 @@ const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
 
     const variants = {
       default: "bg-primary text-primary-foreground hover:bg-primary/90",
-      starknet: "bg-starknet text-white hover:bg-starknet-dark starknet-glow",
+      starknet: "bg-navy text-white hover:bg-navy-dark navy-gradient mint-glow transition-all duration-300",
       outline:
         "border border-input bg-background hover:bg-accent hover:text-accent-foreground",
       ghost: "hover:bg-accent hover:text-accent-foreground",

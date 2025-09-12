@@ -77,11 +77,23 @@
 
 /* StarkNet specific styles */
 .starknet-gradient {
-  background: linear-gradient(135deg, #ff0420 0%, #ff1a3a 100%);
+  background: linear-gradient(135deg, #1a1b4b 0%, #7dd3c0 100%);
+}
+
+.mint-gradient {
+  background: linear-gradient(135deg, #7dd3c0 0%, #9ee0d1 100%);
+}
+
+.navy-gradient {
+  background: linear-gradient(135deg, #1a1b4b 0%, #252659 100%);
 }
 
 .starknet-glow {
-  box-shadow: 0 0 20px rgba(255, 4, 32, 0.3);
+  box-shadow: 0 0 20px rgba(26, 27, 75, 0.3);
+}
+
+.mint-glow {
+  box-shadow: 0 0 20px rgba(125, 211, 192, 0.3);
 }
 
 /* Animation utilities */

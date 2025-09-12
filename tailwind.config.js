@@ -51,9 +51,19 @@ module.exports = {
                     foreground: "hsl(var(--card-foreground))",
                 },
                 starknet: {
-                    DEFAULT: "#ff0420",
-                    dark: "#cc0420",
-                    light: "#ff1a3a",
+                    DEFAULT: "#1a1b4b",
+                    dark: "#151640",
+                    light: "#252659",
+                },
+                mint: {
+                    DEFAULT: "#7dd3c0",
+                    dark: "#5cb8a3",
+                    light: "#9ee0d1",
+                },
+                navy: {
+                    DEFAULT: "#1a1b4b",
+                    dark: "#151640",
+                    light: "#252659",
                 },
             },
             borderRadius: {
