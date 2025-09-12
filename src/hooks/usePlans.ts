@@ -9,7 +9,7 @@ export function usePlans() {
     isLoading,
     error,
     refetch: refreshPlans,
-  } = useQuery("plans", apiClient.getPlans, {
+  } = useQuery("plans", () => apiClient.getPlans(), {
     staleTime: 300000, // 5 minutes
     cacheTime: 600000, // 10 minutes
   });

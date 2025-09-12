@@ -13,7 +13,7 @@ export function useTokens() {
     isLoading,
     error,
     refetch: refreshTokens,
-  } = useQuery("tokens", apiClient.getTokens, {
+  } = useQuery("tokens", () => apiClient.getTokens(), {
     staleTime: 30000, // 30 secondes
     cacheTime: 300000, // 5 minutes
   });

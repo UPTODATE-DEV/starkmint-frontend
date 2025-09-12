@@ -13,7 +13,7 @@ export function usePayments() {
     isLoading,
     error,
     refetch: refreshPayments,
-  } = useQuery("payments", apiClient.getPayments, {
+  } = useQuery("payments", () => apiClient.getPayments(), {
     staleTime: 30000, // 30 secondes
     cacheTime: 300000, // 5 minutes
   });
