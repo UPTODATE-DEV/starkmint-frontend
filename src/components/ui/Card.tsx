@@ -9,16 +9,16 @@ interface CardProps extends React.HTMLAttributes<HTMLDivElement> {
 const Card = React.forwardRef<HTMLDivElement, CardProps>(
   ({ className, children, variant = "default", ...props }, ref) => {
     const variants = {
-      default: "bg-white/[0.02] backdrop-blur-xl border border-white/[0.05] shadow-2xl",
-      glass: "glass-card",
-      glow: "glass-card card-glow",
+      default: "bg-white border border-gray-200 shadow-sm",
+      glass: "bg-white border border-gray-200 shadow-sm",
+      glow: "bg-white border border-gray-200 shadow-lg",
     };
 
     return (
       <div
         ref={ref}
         className={cn(
-          "rounded-2xl text-card-foreground transition-all duration-300 hover:shadow-2xl hover:shadow-mint/5 hover:-translate-y-1",
+          "rounded-lg text-card-foreground transition-all duration-300 hover:shadow-lg",
           variants[variant],
           className
         )}

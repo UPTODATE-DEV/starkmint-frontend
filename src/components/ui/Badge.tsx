@@ -18,22 +18,22 @@ interface BadgeProps extends React.HTMLAttributes<HTMLDivElement> {
 const Badge = React.forwardRef<HTMLDivElement, BadgeProps>(
   ({ className, variant = "default", children, ...props }, ref) => {
     const variants = {
-      default: "bg-white/10 text-white border-white/20 backdrop-blur-sm",
-      secondary: "bg-white/5 text-white/80 border-white/10 backdrop-blur-sm",
-      destructive: "bg-error/20 text-error border-error/30 backdrop-blur-sm",
-      outline: "text-white border-white/30 bg-transparent backdrop-blur-sm",
-      success: "bg-success/20 text-success border-success/30 backdrop-blur-sm",
-      warning: "bg-warning/20 text-warning border-warning/30 backdrop-blur-sm",
-      mint: "bg-mint/20 text-mint border-mint/30 backdrop-blur-sm glow-mint",
-      navy: "bg-navy/20 text-navy border-navy/30 backdrop-blur-sm",
-      glass: "bg-white/5 text-white border-white/10 backdrop-blur-xl",
+      default: "bg-blue-100 text-blue-800 border-blue-200",
+      secondary: "bg-gray-100 text-gray-800 border-gray-200",
+      destructive: "bg-red-100 text-red-800 border-red-200",
+      outline: "text-gray-700 border-gray-300 bg-transparent",
+      success: "bg-green-100 text-green-800 border-green-200",
+      warning: "bg-yellow-100 text-yellow-800 border-yellow-200",
+      mint: "bg-green-100 text-green-800 border-green-200",
+      navy: "bg-gray-100 text-gray-800 border-gray-200",
+      glass: "bg-gray-50 text-gray-700 border-gray-200",
     };
 
     return (
       <div
         ref={ref}
         className={cn(
-          "inline-flex items-center rounded-full border px-3 py-1.5 text-xs font-semibold transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-mint/20 focus:ring-offset-2 focus:ring-offset-slate-900",
+          "inline-flex items-center rounded-full border px-3 py-1.5 text-xs font-semibold transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-blue-500/20 focus:ring-offset-2 focus:ring-offset-white",
           variants[variant],
           className
         )}

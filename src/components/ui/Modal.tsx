@@ -48,19 +48,19 @@ const Modal: React.FC<ModalProps> = ({
       {/* Modal */}
       <div
         className={cn(
-          "relative z-50 w-full max-w-lg mx-4 bg-background rounded-lg shadow-lg animate-fade-in",
+          "relative z-50 w-full max-w-lg mx-4 bg-white rounded-lg shadow-xl border border-gray-200",
           className
         )}
       >
         {/* Header */}
         {title && (
-          <div className="flex items-center justify-between p-6 border-b">
-            <h2 className="text-xl font-semibold">{title}</h2>
+          <div className="flex items-center justify-between p-6 border-b border-gray-200">
+            <h2 className="text-xl font-semibold text-gray-900">{title}</h2>
             <button
               onClick={onClose}
-              className="p-1 hover:bg-muted rounded-md transition-colors"
+              className="p-1 hover:bg-gray-100 rounded-md transition-colors"
             >
-              <X className="h-5 w-5" />
+              <X className="h-5 w-5 text-gray-500" />
             </button>
           </div>
         )}
